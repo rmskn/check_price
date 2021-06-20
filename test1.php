@@ -35,7 +35,7 @@
                 $string = htmlentities($node->nodeValue, null, 'utf-8');
                 $string = preg_replace("/[^0-9]/",'',$string); 
                 echo $string;
-            }
+            }           
             ?>
 </body>
 </html>

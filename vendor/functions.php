@@ -1,7 +1,7 @@
 <?php
-    function check_href($href, $active = NULL)//$href is url; $active is trying to parse
+    function check_href($href, $active = NULL)//$href is url; $active is trying to parse. Return boolean array(2), [0] - in db, [1] - try parse
     {
-        require_once 'connect.php';
+        require 'connect.php';
         $ans = array();
 
         //Check in DB
@@ -13,11 +13,13 @@
         {
             if (strripos($href, $row[0]))
             {
-                array_push($ans, True);
+                array_push($ans, 1);
                 break;
             }
         }
-        if (!isset($ans[0])) array_push($ans, False);
+        if (!isset($ans[0])) array_push($ans, 0);
+
+        #----------------------------------------------------------------------------------#
         
         //Check active of shop's page (try to parse a price)
         //Return TRUE, if parsing is completed successfully
@@ -25,6 +27,8 @@
         if ($active!=NULL)
         {
             libxml_use_internal_errors(true);
+            $tmp = false;
+
             $shops_xpath = mysqli_query($connect, "select url, xpath from shops");
 
             while($row=mysqli_fetch_row($shops_xpath))
@@ -42,18 +46,18 @@
             $xpath = new DomXPath($dom);
             $nodes = $xpath->query($query);
 
-            $tmp = false;
             foreach ($nodes as $i => $node)
 			{
                 $tmp = true;
             }
             
-            if ($tmp) array_push($ans, True);
-                else array_push($ans, False);            
+            if ($tmp) array_push($ans, 1);
+                else array_push($ans, 0);            
         }
         
-        echo $ans;
         return $ans;
     }
+
+    
 
 ?>

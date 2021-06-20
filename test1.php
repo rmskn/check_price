@@ -30,7 +30,8 @@
             $xpath = new DomXPath($dom);
             $nodes = $xpath->query($query);
 
-            foreach ($nodes as $i => $node) {
+            foreach ($nodes as $i => $node)
+			{
                 $string = htmlentities($node->nodeValue, null, 'utf-8');
                 $string = preg_replace("/[^0-9]/",'',$string); 
                 echo $string;

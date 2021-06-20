@@ -29,7 +29,7 @@
             libxml_use_internal_errors(true);
             $tmp = false;
 
-            $shops_xpath = mysqli_query($connect, "select url, xpath from shops");
+            $shops_xpath = mysqli_query($connect, "select url, xpath_price from shops");
 
             while($row=mysqli_fetch_row($shops_xpath))
             {
@@ -58,6 +58,64 @@
         return $ans;
     }
 
-    
+    function get_price_by_xpath($href)//$href is url. Return (string)Price of item
+    {
+        require 'connect.php';
+        libxml_use_internal_errors(true);
+
+        $shops_xpath = mysqli_query($connect, "select url, xpath_price from shops");
+
+        while($row=mysqli_fetch_row($shops_xpath))
+        {
+            if (strripos($href, $row[0]))
+            {
+                $query = $row[1];
+                break;
+            }
+        }
+
+        $dom = new DomDocument;
+        $dom->loadHTMLFile($href);
+
+        $xpath = new DomXPath($dom);
+        $nodes = $xpath->query($query);
+
+        foreach ($nodes as $i => $node)
+		{
+            $string = htmlentities($node->nodeValue, null, 'utf-8');
+            $string = preg_replace("/[^0-9]/",'',$string); 
+            return $string;
+        } 
+    }
+
+    function get_title_by_xpath($href)//$href is url. Return (string)Price of item
+    {
+        require 'connect.php';
+        libxml_use_internal_errors(true);
+
+        $shops_xpath = mysqli_query($connect, "select url, xpath_title from shops");
+
+        while($row=mysqli_fetch_row($shops_xpath))
+        {
+            if (strripos($href, $row[0]))
+            {
+                $query = $row[1];
+                break;
+            }
+        }
+
+        $dom = new DomDocument;
+        $dom->loadHTMLFile($href);
+
+        $xpath = new DomXPath($dom);
+        $nodes = $xpath->query($query);
+
+        foreach ($nodes as $i => $node)
+		{
+            //$string = htmlentities($node->nodeValue, null, 'utf-8');
+            return $node->nodeValue; 
+            return $string;
+        } 
+    }
 
 ?>

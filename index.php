@@ -56,13 +56,13 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-    <div class="carousel-item active" style="height: 600px;" data-bs-interval="2000">
+    <div class="carousel-item active" style="height: 600px; transition: opacity .8s ease;" data-bs-interval="2000">
       <img src="img/slide1.jpg" width="1200px" class="d-block w-100" alt="...">
     </div>
-    <div class="carousel-item" style="height: 600px;" data-bs-interval="2000">
+    <div class="carousel-item" style="height: 600px; transition: opacity .8s ease;" data-bs-interval="2000">
       <img src="img/slide2.jpg" width="1200px" class="d-block w-100" alt="...">
     </div>
-    <div class="carousel-item" style="height: 600px;" data-bs-interval="2000">
+    <div class="carousel-item" style="height: 600px; transition: opacity .8s ease;" data-bs-interval="2000">
       <img src="img/slide3.jpg" width="1200px" class="d-block w-100" alt="...">
     </div>
   </div>

@@ -96,7 +96,11 @@
       </div>
 </div>
   
-
+<div class="container">
+  <img src="img/WLB.png" width="350px" alt="">
+  <img src="img/ozon.png" width="350px" alt="">
+  <img src="img/Avito.png" width="350px" alt="">
+</div>
 
 
 

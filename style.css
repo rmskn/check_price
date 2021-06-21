@@ -34,21 +34,30 @@ h1,h2,h3,h4 {
 
 .intro {
     margin-top: 50px;
+    
 }
 .intro-inner {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .intro-item {
-    border-top: black 1px solid;
-    border-bottom: black 1px solid;
-    width: 50%;
+    width: 45%;
 }
 
 .intro-text {
-    
+    margin-right: 40px;
+    border-top: black 1px solid;
+    border-bottom: black 1px solid;
     font-size: 30px;
     text-align: center;
 }
-
+.intro-form {
+    font-size: 30px;
+    text-align: center;
+    border: black 2px solid;
+    padding-bottom: 50px;
+    border-radius: 5px;
+}
+.form-content {
+}

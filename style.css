@@ -1,8 +1,54 @@
 body {
+    margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color:rgb(255, 255, 255);
+    line-height: 1.6;
 }
 .nav-item-size {
     font-size: 20px;
 }
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+
+h1,h2,h3,h4 {
+    margin: 0;
+}
+
+*,
+*::after,
+*::before
+ {
+    box-sizing: border-box;
+}
+
+/* ==================== INTRO =========================== */
+
+.intro {
+    margin-top: 50px;
+}
+.intro-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.intro-item {
+    border-top: black 1px solid;
+    border-bottom: black 1px solid;
+    width: 50%;
+}
+
+.intro-text {
+    
+    font-size: 30px;
+    text-align: center;
+}
+

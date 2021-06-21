@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="style.css">   
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>Check Price</title>
     <!-- CSS only -->
@@ -33,8 +34,8 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Информация
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">О нас</a></li>
+          <ul class="dropdown-menu"  aria-labelledby="navbarDropdown">
+            <li ><a class="dropdown-item"  href="#">О нас</a></li>
             <li><a class="dropdown-item" href="#">Поддерживаемые магазины</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Справка</a></li>
@@ -49,7 +50,7 @@
   </div>
 </nav>
 
-<div id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel">
+<div id="carouselExampleInterval" style="margin-top: 40px;" class="carousel slide carousel-fade" data-bs-ride="carousel">
   <div class="carousel-inner">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -76,7 +77,26 @@
   </button>
 </div>
 
-<script src=""></script>
+ 
+  <div class="intro">
+    <div class="container">
+      <div class="intro-inner">
+        <div class="intro-item">
+          <div class="intro-text">Не всегда бывает удобно постоянно отслеживать цену понравившегося товара. Для этого мы разработали отслеживание твоих желаемых товаров с разных онлайн-магазинов</div>
+        </div>
+        <div class="intro-item">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+<script src=""></script> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,10 +1,8 @@
 body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
-    color:rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif; */
     line-height: 1.6;
 }
 .nav-item-size {
@@ -34,7 +32,7 @@ h1,h2,h3,h4 {
 
 .intro {
     margin-top: 50px;
-    
+    font-family: 'Roboto', sans-serif;
 }
 .intro-inner {
     display: flex;
@@ -49,15 +47,49 @@ h1,h2,h3,h4 {
     margin-right: 40px;
     border-top: black 1px solid;
     border-bottom: black 1px solid;
-    font-size: 30px;
+    font-size: 36px;
     text-align: center;
 }
+.form_text {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 .intro-form {
-    font-size: 30px;
+    border-top: black 1px solid;
+    border-bottom: black 1px solid;
+    padding-bottom: 43px;
     text-align: center;
-    border: black 2px solid;
-    padding-bottom: 50px;
-    border-radius: 5px;
 }
-.form-content {
+
+.form-input {
+    margin-top: 10px;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 100px;
+    padding-left: 5px;
+    transition: .4s linear;
+}
+.form-input:focus {
+    outline: 0;
+    outline-offset: 0;
+    border: 2px solid #57B845; 
+}
+.form-btn {
+    margin-left: 220px;
+    border-style: unset;
+    font-weight: 700;
+    color: white;
+    background: black;
+    padding: 10 8;
+    border-radius: 30px;
+    margin-top: 15px;
+    font-size: 16px;
+    transition: .4s linear;
+}
+.form-btn:hover  {
+    background: #57B845;
+    
 }

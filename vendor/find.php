@@ -18,10 +18,8 @@
 
     echo get_price_by_xpath($href);
     echo '<br/>';
-    //echo mb_detect_encoding(get_title_by_xpath($href));
-    //echo '<br/>';
     echo get_title_by_xpath($href);
     echo '<br/>';
-    echo 'А ещё картинка будет';
+    echo '<img src="'.get_image_by_xpath($href).'">';
 
 ?>

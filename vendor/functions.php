@@ -88,7 +88,7 @@
         } 
     }
 
-    function get_title_by_xpath($href)//$href is url. Return (string)Price of item
+    function get_title_by_xpath($href)//$href is url. Return (string)Title of item
     {
         require 'connect.php';
         libxml_use_internal_errors(true);
@@ -113,9 +113,37 @@
         foreach ($nodes as $i => $node)
 		{
             //$string = htmlentities($node->nodeValue, null, 'utf-8');
+            return mb_convert_encoding($node->nodeValue, 'iso-8859-1', 'UTF-8');//mb_convert_encoding($str, 'iso-8859-1', 'UTF-8');
+            $convertedText = mb_convert_encoding($node->nodeValue, 'windows-1251', mb_detect_encoding($node->nodeValue));
+            echo $convertedText;
             return $node->nodeValue; 
             return $string;
         } 
+    }
+
+    function get_image_by_xpath($href)//$href is url. Return (string)Image of item (only one)
+    {
+        require 'connect.php';
+        libxml_use_internal_errors(true);
+
+        $shops_xpath = mysqli_query($connect, "select url, xpath_image from shops");
+
+        while($row=mysqli_fetch_row($shops_xpath))
+        {
+            if (strripos($href, $row[0]))
+            {
+                $query = $row[1];
+                break;
+            }
+        }
+
+        $dom = new DomDocument;
+        $dom->loadHTMLFile($href);
+
+        $xpath = new DomXPath($dom);
+        $nodes = $xpath->query($query);
+
+        return $nodes->item(0)->getAttribute('data-url');
     }
 
 ?>

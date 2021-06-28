@@ -95,13 +95,27 @@
       </div>
       </div>
 </div>
-  
-<div class="container">
-  <img src="img/WLB.png" width="350px" alt="">
-  <img src="img/ozon.png" width="350px" alt="">
-  <img src="img/Avito.png" width="350px" alt="">
+
+<div class="company">
+  <div class="container">
+    <div class="cmp-text">Поддерживаемые магазины</div>
+    <div class="cmp-items">
+      <div class="cmp-itm">
+          <img src="img/WLB.png" width="350px" alt="">
+        </div>
+        <div class="cmp-itm">
+          <img src="img/ozon.png" width="350px" alt="">
+        </div>
+        <div class="cmp-itm">
+          <img src="img/Avito.png" width="350px" alt="">
+        </div>
+      </div>
+  </div>
 </div>
 
+<footer class="footer">
+  <div class="footer-text">checkprice@mail.ru</div>
+</footer>
 
 
 

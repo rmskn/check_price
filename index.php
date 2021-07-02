@@ -6,14 +6,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="style.css">   
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans&family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <title>Check Price</title>
+    <title>Главная страница</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-xl ">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="index.php">
       <img src="/img/Logo.png" alt="" width="42">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,11 +23,11 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
     
         <li class="nav-item ">
-          <a class="nav-link" href="#">Вход</a>
+          <a class="nav-link" href="auth.php">Вход</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="#">Регистрация</a>
+          <a class="nav-link" href="registration.php">Регистрация</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -113,9 +113,9 @@
   </div>
 </div>
 
-<footer class="footer">
+<!-- <footer class="footer">
   <div class="footer-text">checkprice@mail.ru</div>
-</footer>
+</footer> -->
 
 
 

@@ -116,7 +116,7 @@
 
         $answer = array('NO','NO','NO');
 
-        $shops_xpath = mysqli_query($connect, "select url, xpath_price, xpath_title, xpath_image from shops");
+        $shops_xpath = mysqli_query($connect, "select url, xpath_price, xpath_title, xpath_image, id from shops");
 
         while($row=mysqli_fetch_row($shops_xpath))
         {
@@ -125,6 +125,7 @@
                 $query_price = $row[1];
                 $query_title = $row[2];
                 $query_image = $row[3];
+                $id_shop = $row[4];
                 break;
             }
         }
@@ -144,18 +145,44 @@
 
         if ($answer[0]=='NO') return false;
 
+        //TITLE
+
         $xpath = new DomXPath($dom);
         $nodes = $xpath->query($query_title);
 
         foreach ($nodes as $i => $node)
 		{
-            $answer[1] = mb_convert_encoding($node->nodeValue, 'iso-8859-1', 'UTF-8');
+            switch ($id_shop) {
+                case 1://avito
+                    $answer[1] = mb_convert_encoding($node->nodeValue, 'iso-8859-1', 'UTF-8');
+                    break;
+                case 2://wildberries
+                    $answer[1] = $node->nodeValue;
+                    break;
+                case 3:
+                    echo "i равно 2";
+                    break;
+                }
+
         }
         
+        //IMAGE
+
         $xpath = new DomXPath($dom);
         $nodes = $xpath->query($query_image);
 
-        $answer[2] = $nodes->item(0)->getAttribute('data-url');
+        switch ($id_shop) {
+            case 1://avito
+                $answer[2] = $nodes->item(0)->getAttribute('data-url');
+                break;
+            case 2://wildberries
+                $answer[2] = $nodes->item(0)->getAttribute('src');
+                break;
+            case 3:
+                echo "i равно 2";
+                break;
+        }
+        
 
         return $answer;
     }

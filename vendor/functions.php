@@ -2,7 +2,7 @@
     function check_href($href, $active = NULL)//$href is url; $active is trying to parse. Return boolean array(2), [0] - in db, [1] - try parse
     {
         require 'connect.php';
-        $ans = array();
+        $ans = 0;
 
         //Check in DB
         //Return TRUE, if url is correct and DB have needed domen
@@ -13,48 +13,11 @@
         {
             if (strripos($href, $row[0]))
             {
-                array_push($ans, 1);
+                $ans =  1;
                 break;
             }
         }
-        if (!isset($ans[0])) array_push($ans, 0);
 
-        #----------------------------------------------------------------------------------#
-        
-        //Check active of shop's page (try to parse a price)
-        //Return TRUE, if parsing is completed successfully
-        //Return FALSE, if parsing is failed
-        if ($active!=NULL)
-        {
-            libxml_use_internal_errors(true);
-            $tmp = false;
-
-            $shops_xpath = mysqli_query($connect, "select url, xpath_price from shops");
-
-            while($row=mysqli_fetch_row($shops_xpath))
-            {
-                if (strripos($href, $row[0]))
-                {
-                    $query = $row[1];
-                    break;
-                }
-            }
-
-            $dom = new DomDocument;
-            $dom->loadHTMLFile($href);
-
-            $xpath = new DomXPath($dom);
-            $nodes = $xpath->query($query);
-
-            foreach ($nodes as $i => $node)
-			{
-                $tmp = true;
-            }
-            
-            if ($tmp) array_push($ans, 1);
-                else array_push($ans, 0);            
-        }
-        
         return $ans;
     }
 
@@ -144,6 +107,57 @@
         $nodes = $xpath->query($query);
 
         return $nodes->item(0)->getAttribute('data-url');
+    }
+
+    function get_all_by_xpath($href)
+    {
+        require 'connect.php';
+        libxml_use_internal_errors(true);
+
+        $answer = array('NO','NO','NO');
+
+        $shops_xpath = mysqli_query($connect, "select url, xpath_price, xpath_title, xpath_image from shops");
+
+        while($row=mysqli_fetch_row($shops_xpath))
+        {
+            if (strripos($href, $row[0]))
+            {
+                $query_price = $row[1];
+                $query_title = $row[2];
+                $query_image = $row[3];
+                break;
+            }
+        }
+
+        $dom = new DomDocument;
+        $dom->loadHTMLFile($href);
+
+        $xpath = new DomXPath($dom);
+        $nodes = $xpath->query($query_price);
+
+        foreach ($nodes as $i => $node)
+		{
+            $string = htmlentities($node->nodeValue, null, 'utf-8');
+            $string = preg_replace("/[^0-9]/",'',$string); 
+            $answer[0] = $string;
+        }
+
+        if ($answer[0]=='NO') return false;
+
+        $xpath = new DomXPath($dom);
+        $nodes = $xpath->query($query_title);
+
+        foreach ($nodes as $i => $node)
+		{
+            $answer[1] = mb_convert_encoding($node->nodeValue, 'iso-8859-1', 'UTF-8');
+        }
+        
+        $xpath = new DomXPath($dom);
+        $nodes = $xpath->query($query_image);
+
+        $answer[2] = $nodes->item(0)->getAttribute('data-url');
+
+        return $answer;
     }
 
 ?>

@@ -109,7 +109,7 @@
         return $nodes->item(0)->getAttribute('data-url');
     }
 
-    function get_all_by_xpath($href)
+    function get_all_by_xpath($href)//$href is url. Return array[price, title, image] or 'NO' if failed
     {
         require 'connect.php';
         libxml_use_internal_errors(true);
@@ -187,4 +187,30 @@
         return $answer;
     }
 
+    function check_email($email)//Check correct email. Return 0 - all good, 1 - also registration email, 2 - incorrect email(regexp)
+    {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL))
+        {
+            //ALso check DB
+            //return 0;
+                //else return 1
+        }
+        else return 2;
+    }
+
+    function check_login($login)//Return 0 - all good, 1 - also registration login, 2 - short or long, 3 - incorrect symbols
+    {
+
+    }
+
+    function check_password($password, $repeat_password)//Return 0 - all good, 1 - short or long, 2 - incorrect symbols, 3 - don't matching repeat pass
+    {
+
+    }
+
+    function check_fullname($fullname)//Return bool
+    {
+        if (filter_var($fullname, FILTER_VALIDATE_REGEXP,array("options"=>array("regexp"=>"/\w/")))) return true;
+            else return false;
+    }
 ?>

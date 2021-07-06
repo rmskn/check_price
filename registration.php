@@ -1,3 +1,7 @@
+<?php
+     session_start();
+     
+?>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -49,13 +53,14 @@
 
     <div class="container">
     <div class="reg">
-    <form class="reg-form" action="">
+    <form class="reg-form" action="vendor/new_user_check.php" method="post">
             <div class="form_text">Регистрация</div>
+              <input class="form-input" type="text" placeholder="Ваше имя"><br>
               <input class="form-input" type="text" placeholder="Имя пользователя"><br>
               <input class="form-input" type="text" placeholder="E-mail"><br>
               <input class="form-input" type="text" placeholder="Пароль"><br>
               <input class="form-input" type="text" placeholder="Подтверждение пароля"><br>
-              <button class="form-btn">Продолжить</button>
+              <button class="form-btn" type="submit">Продолжить</button>
             </form> 
     </div>
     </div>

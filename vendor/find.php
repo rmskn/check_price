@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     /*
     //Это код, чтобы вывести саму страницу-донора
     $ch = curl_init();
@@ -20,6 +22,8 @@
 
     if ($ans==0)
     {
+        $_SESSION['find-error'] = 'Данный магазин пока не поддерживается или ссылка некорректна';
+        header('Location: /search.php');
         echo "Данный магазин пока не поддерживается или ссылка некорректна <br/>";
         die();
     }
@@ -30,9 +34,14 @@
     {
         //Тут ошибка с капчей или не удалось считать цену
         //или сайт не доступен
+        $_SESSION['find-error'] = 'Произошла непредвиденная ошибка. Попробуйте позже';
+        header('Location: /search.php');
         echo 'error';
         die();
     }
+
+    $_SESSION['finded-item'] = $data;
+    header('Location: /search.php');
 
     echo $data[0];//price
     echo '<br/>';

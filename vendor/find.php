@@ -1,5 +1,6 @@
 <?php
     /*
+    //Это код, чтобы вывести саму страницу-донора
     $ch = curl_init();
      curl_setopt($ch, CURLOPT_URL, $_POST['findhref']);
      curl_setopt($ch, CURLOPT_TIMEOUT, 15);
@@ -27,7 +28,8 @@
 
     if ($data==false)
     {
-        //Тут ошибка с капчей
+        //Тут ошибка с капчей или не удалось считать цену
+        //или сайт не доступен
         echo 'error';
         die();
     }

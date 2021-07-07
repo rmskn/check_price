@@ -1,6 +1,7 @@
 <?php
      session_start();
      
+     $errors = $_SESSION['reg-error'];
 ?>
 <html lang="ru">
 <head>
@@ -55,11 +56,11 @@
     <div class="reg">
     <form class="reg-form" action="vendor/new_user_check.php" method="post">
             <div class="form_text">Регистрация</div>
-              <input class="form-input" type="text" placeholder="Ваше имя"><br>
-              <input class="form-input" type="text" placeholder="Имя пользователя"><br>
-              <input class="form-input" type="text" placeholder="E-mail"><br>
-              <input class="form-input" type="text" placeholder="Пароль"><br>
-              <input class="form-input" type="text" placeholder="Подтверждение пароля"><br>
+              <input class="form-input" type="text" placeholder="Ваше имя" name="fullname"><br>
+              <input class="form-input" type="text" placeholder="Имя пользователя" name="login"><br>
+              <input class="form-input" type="text" placeholder="E-mail" name="email"><br>
+              <input class="form-input" type="text" placeholder="Пароль" name="password"><br>
+              <input class="form-input" type="text" placeholder="Подтверждение пароля" name="repeat_password"><br>
               <button class="form-btn" type="submit">Продолжить</button>
             </form> 
     </div>

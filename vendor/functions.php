@@ -191,26 +191,54 @@
     {
         if (filter_var($email, FILTER_VALIDATE_EMAIL))
         {
-            //ALso check DB
-            //return 0;
-                //else return 1
+            require 'connect.php';
+
+            if (mysqli_num_rows(mysqli_query($connect, "select id from users where email = '$email'"))>0) return 1;
+            return 0;
         }
         else return 2;
     }
 
-    function check_login($login)//Return 0 - all good, 1 - also registration login, 2 - short or long, 3 - incorrect symbols
+    function check_login($login)//Return 0 - all good, 1 - also registration login, 2 - short or long[5,15], 3 - incorrect symbols
     {
+        if (filter_var($login, FILTER_VALIDATE_REGEXP,array("options"=>array("regexp"=>"/\w/"))))
+        {
+            require 'connect.php';
 
+            if (mysqli_num_rows(mysqli_query($connect, "select id from users where login = '$login'"))>0) return 1;
+            
+            if ((strlen($login)>15)||(strlen($login)<5)) return 2;
+
+            return 0;
+        }
+            else return 3;
     }
 
     function check_password($password, $repeat_password)//Return 0 - all good, 1 - short or long, 2 - incorrect symbols, 3 - don't matching repeat pass
     {
+        $number = preg_match('@[0-9]@', $password);
+        $uppercase = preg_match('@[A-Z]@', $password);
+        $lowercase = preg_match('@[a-z]@', $password);
+        $specialChars = preg_match('@[^\w]@', $password);
+        
+        if(!$number || !$uppercase || !$lowercase || !$specialChars)
+        {
+            if ((strlen($password)>25)||(strlen($password)<5)) return 1;
+
+            if ($password!=$repeat_password) return 3;
+
+            return 0;
+        }
+        else
+        {
+            return 2;
+        }
 
     }
 
-    function check_fullname($fullname)//Return bool
+    function check_fullname($fullname)//Return 0 - all good, 1 - incorrect symbols
     {
-        if (filter_var($fullname, FILTER_VALIDATE_REGEXP,array("options"=>array("regexp"=>"/\w/")))) return true;
-            else return false;
+        if (filter_var($fullname, FILTER_VALIDATE_REGEXP,array("options"=>array("regexp"=>"/\w/")))) return 0;
+            else return 1;
     }
 ?>

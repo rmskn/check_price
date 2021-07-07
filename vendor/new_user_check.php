@@ -49,6 +49,7 @@
     else
     {
         $_SESSION['reg-error'] = $error;
+        $_SESSION['tmp-reg-data'] = array($fullname, $login, $email, $password);
         header("Location: ".$_SERVER['HTTP_REFERER']);
     }
 

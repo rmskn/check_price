@@ -1,7 +1,14 @@
 <?php
      session_start();
      
-     $errors = $_SESSION['reg-error'];
+     if (isset($_SESSION['reg-error'])) 
+     {
+       $errors = $_SESSION['reg-error'];
+       $data = $_SESSION['tmp-reg-data'];
+
+       
+     }
+     
 ?>
 <html lang="ru">
 <head>

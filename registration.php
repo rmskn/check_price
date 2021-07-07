@@ -59,8 +59,8 @@
               <input class="form-input" type="text" placeholder="Ваше имя" name="fullname"><br>
               <input class="form-input" type="text" placeholder="Имя пользователя" name="login"><br>
               <input class="form-input" type="text" placeholder="E-mail" name="email"><br>
-              <input class="form-input" type="text" placeholder="Пароль" name="password"><br>
-              <input class="form-input" type="text" placeholder="Подтверждение пароля" name="repeat_password"><br>
+              <input class="form-input" type="password" placeholder="Пароль" name="password"><br>
+              <input class="form-input" type="password" placeholder="Подтверждение пароля" name="repeat_password"><br>
               <button class="form-btn" type="submit">Продолжить</button>
             </form> 
     </div>

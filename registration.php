@@ -1,12 +1,24 @@
 <?php
      session_start();
+
+     //Insert old data
+     $ph_fullname = "";
+     $ph_login = "";
+     $ph_email = "";
      
      if (isset($_SESSION['reg-error'])) 
      {
-       $errors = $_SESSION['reg-error'];
-       $data = $_SESSION['tmp-reg-data'];
+       $errors = $_SESSION['reg-error'];//Array of errors
+       $data = $_SESSION['tmp-reg-data'];//Reg data
 
-       
+       unset($_SESSION['tmp-reg-data']);
+       unset($_SESSION['reg-error']);
+
+       $ph_fullname = $data[0];
+       $ph_login = $data[1];
+       $ph_email = $data[2];
+
+       //ТУТ ИЛИ НЕ ТУТ НАДО ВЫВОДИТЬ ОШИБКИ ИЗ ERRORS[]
      }
      
 ?>
@@ -63,9 +75,9 @@
     <div class="reg">
     <form class="reg-form" action="vendor/new_user_check.php" method="post">
             <div class="form_text">Регистрация</div>
-              <input class="form-input" type="text" placeholder="Ваше имя" name="fullname"><br>
-              <input class="form-input" type="text" placeholder="Имя пользователя" name="login"><br>
-              <input class="form-input" type="text" placeholder="E-mail" name="email"><br>
+              <input class="form-input" type="text" placeholder="Ваше имя" name="fullname" value="<?php echo $ph_fullname; ?>"><br>
+              <input class="form-input" type="text" placeholder="Имя пользователя" name="login" value="<?php echo $ph_login; ?>"><br>
+              <input class="form-input" type="text" placeholder="E-mail" name="email" value="<?php echo $ph_email; ?>"><br>
               <input class="form-input" type="password" placeholder="Пароль" name="password"><br>
               <input class="form-input" type="password" placeholder="Подтверждение пароля" name="repeat_password"><br>
               <button class="form-btn" type="submit">Продолжить</button>

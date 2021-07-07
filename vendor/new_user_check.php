@@ -27,17 +27,14 @@
                                     and one special character)
                            3 - don't matching repeat pass
     */
+
     $error = array(check_fullname($fullname),check_login($login),check_email($email),check_password($password, $repeat_password));
 
     //Check
     $flag = true;
-    $i = 0;
-
-    var_dump($error);
-    echo count($error);
 
     for ($i = 0; $i < count($error); $i++)
-    if (!(($error[i]===0)))
+    if (!($error[$i]===0))
     {$flag = false; break;}
 
     //If all correct go to continue registration else return to reg page with errors
@@ -49,7 +46,7 @@
     else
     {
         $_SESSION['reg-error'] = $error;
-        $_SESSION['tmp-reg-data'] = array($fullname, $login, $email, $password);
+        $_SESSION['tmp-reg-data'] = array($fullname, $login, $email);
         header("Location: ".$_SERVER['HTTP_REFERER']);
     }
 

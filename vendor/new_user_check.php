@@ -33,9 +33,7 @@
     //Check
     $flag = true;
 
-    for ($i = 0; $i < count($error); $i++)
-    if (!($error[$i]===0))
-    {$flag = false; break;}
+    for ($i = 0; $i < count($error); $i++) if (!($error[$i]===0)) {$flag = false; break;}
 
     //If all correct go to continue registration else return to reg page with errors
     if ($flag)

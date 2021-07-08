@@ -221,17 +221,17 @@
         $lowercase = preg_match('@[a-z]@', $password);
         $specialChars = preg_match('@[^\w]@', $password);
         
-        if(!$number || !$uppercase || !$lowercase || !$specialChars)
+        if($number && $uppercase && $lowercase && $specialChars)
         {
-            if ((strlen($password)>25)||(strlen($password)<5)) return 1;
+            if ((strlen($password)>25)||(strlen($password)<5)) return 1;//short or long
 
-            if ($password!=$repeat_password) return 3;
+            if ($password!=$repeat_password) return 3;//matching repeat pass
 
-            return 0;
+            return 0;//all good
         }
         else
         {
-            return 2;
+            return 2;//incorrect symbols
         }
 
     }

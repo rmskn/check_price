@@ -19,7 +19,8 @@
     }
     else
     {
-        //AUTORIZTION!!!
+        $_SESSION['authorization-status']=true;
+        $_SESSION['authorization-login']=$login;
         header('Location: /index.php');
     }
 

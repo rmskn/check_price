@@ -1,3 +1,23 @@
+<?php
+     session_start();
+
+     //Insert old data
+     $ph_login = "";
+     
+     if (isset($_SESSION['auth-error'])) 
+     {
+       $errors = $_SESSION['auth-error'];//Error (string) (you can edit it in vendor/auth.php)
+       $data = $_SESSION['tmp-auth-login'];//auth data
+
+       unset($_SESSION['auth-error']);
+       unset($_SESSION['tmp-auth-login']);
+
+       $ph_login = $data;
+
+       //ТУТ ИЛИ НЕ ТУТ НАДО ВЫВОДИТЬ ОШИБКИ ИЗ ERRORS
+     }
+     
+?>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -49,11 +69,11 @@
 
     <div class="container">
     <div class="reg">
-    <form class="reg-form" action="">
+    <form class="reg-form" action="vendor/auth.php" method="post">
             <div class="form_text">Авторизация</div>
-              <input class="form-input" type="text" placeholder="Имя пользователя"><br>
-              <input class="form-input" type="text" placeholder="Пароль"><br>
-              <button class="form-btn">Продолжить</button>
+              <input class="form-input" type="text" placeholder="Имя пользователя" name="login" value="<?php echo $ph_login; ?>"><br>
+              <input class="form-input" type="password" placeholder="Пароль" name="password"><br>
+              <button class="form-btn" type="submit">Продолжить</button>
             </form> 
     </div>
     </div>

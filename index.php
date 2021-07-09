@@ -85,11 +85,11 @@
           <div class="intro-text">Не всегда бывает удобно постоянно отслеживать цену понравившегося товара. Для этого мы разработали отслеживание твоих желаемых товаров с разных онлайн-магазинов</div>
         </div>
         <div class="intro-item">
-            <form class="intro-form" action="">
+            <form class="intro-form" action="registration.php" method="post">
             <div class="form_text">Зарегистрируйся! И добавляй свой первый товар!</div>
-              <input class="form-input" type="text" placeholder="Имя пользователя"><br>
-              <input class="form-input" type="text" placeholder="E-mail"><br>
-              <button class="form-btn">Продолжить</button>
+              <input class="form-input" type="text" placeholder="Имя пользователя" name="login"><br>
+              <input class="form-input" type="text" placeholder="E-mail" name="email"><br>
+              <button class="form-btn" type="submit">Продолжить</button>
             </form> 
         </div>
       </div>

@@ -3,16 +3,16 @@
 
      //Insert old data
      $ph_login = "";
+     $error = "";
      
      if (isset($_SESSION['auth-error'])) 
      {
-       $errors = $_SESSION['auth-error'];//Error (string) (you can edit it in vendor/auth.php)
+       $error = $_SESSION['auth-error'];//Error (string) (you can edit it in vendor/auth.php)
        $ph_login = $_SESSION['tmp-auth-login'];//auth data
 
        unset($_SESSION['auth-error']);
        unset($_SESSION['tmp-auth-login']);
 
-       //ТУТ ИЛИ НЕ ТУТ НАДО ВЫВОДИТЬ ОШИБКИ ИЗ ERRORS
      }
      
 ?>
@@ -70,7 +70,9 @@
     <form class="reg-form" action="vendor/auth.php" method="post">
             <div class="form_text">Авторизация</div>
               <input class="form-input" type="text" placeholder="Имя пользователя" name="login" value="<?php echo $ph_login; ?>"><br>
+              <?php if ($error == 'Неверный логин') echo $error; echo '</br>'; ?>
               <input class="form-input" type="password" placeholder="Пароль" name="password" required ><br>
+              <?php if ($error == 'Неверный пароль') echo $error; echo '</br>'; ?>
               <button class="form-btn" type="submit">Продолжить</button>
             </form> 
     </div>

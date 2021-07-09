@@ -7,11 +7,12 @@
 
     $hash = mysqli_query($connect,"select password from users where login='$login'");
 
-    if (!$hash)
+    if (mysqli_num_rows($hash)==0)
     {
         $_SESSION['auth-error']='Неверный логин';
         $_SESSION['tmp-auth-login']=$login;
         header("Location: ".$_SERVER['HTTP_REFERER']);
+        die();
     }
 
     $hash = mysqli_fetch_row($hash);

@@ -1,10 +1,19 @@
 <?php
      session_start();
 
-     //Insert old data
      $ph_fullname = "";
      $ph_login = "";
      $ph_email = "";
+
+     //by main page
+     if (isset($_POST['login'])&&isset($_POST['email']))
+      {
+            $ph_login = $_POST['login'];
+            $ph_email = $_POST['email'];
+
+      }
+
+     //Insert old data
      
      if (isset($_SESSION['reg-error'])) 
      {

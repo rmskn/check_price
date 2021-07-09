@@ -15,7 +15,7 @@
         
     }
 
-    //unset($_SESSION['find-error']);
+    unset($_SESSION['find-error']);
 
 
 

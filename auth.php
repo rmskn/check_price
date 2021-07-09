@@ -12,8 +12,6 @@
        unset($_SESSION['auth-error']);
        unset($_SESSION['tmp-auth-login']);
 
-       var_dump($ph_login);
-
        //ТУТ ИЛИ НЕ ТУТ НАДО ВЫВОДИТЬ ОШИБКИ ИЗ ERRORS
      }
      

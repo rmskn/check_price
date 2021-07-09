@@ -1,19 +1,19 @@
 <?php
     session_start();
 
-    /*
+    
     //Это код, чтобы вывести саму страницу-донора
-    $ch = curl_init();
-     curl_setopt($ch, CURLOPT_URL, $_POST['findhref']);
-     curl_setopt($ch, CURLOPT_TIMEOUT, 15);
-     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-     $html = curl_exec($ch);
-     curl_close($ch);
+    // $ch = curl_init();
+    //  curl_setopt($ch, CURLOPT_URL, $_POST['findhref']);
+    //  curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+    //  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    //  $html = curl_exec($ch);
+    //  curl_close($ch);
 
-     echo $html;
+    //  echo $html;
 
-     die();*/
+    //  die();
 
     require_once 'functions.php';
 

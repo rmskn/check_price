@@ -241,4 +241,21 @@
         if (filter_var($fullname, FILTER_VALIDATE_REGEXP,array("options"=>array("regexp"=>"/\w/")))) return 0;
             else return 1;
     }
+
+    function check_url_database($url, $user_id)//Return 0 - FULL MATHCING(user have this track), 1 - MATCHING (track in db), 2 - don't mathcing in db
+    {
+        require 'connect.php';
+
+        $result = mysqli_query($connect,"select id from tracking where url='$url'");      
+
+        if ($result) 
+        {
+            $result = mysqli_fetch_row($result);
+            $result = $result[0];
+            $result1 = mysqli_query($connect,"select id from user_tracking where user='$user_id' and track ='$result'");
+            if ($result1) return 0;
+            return 1;
+        }
+            else return 2;
+    }
 ?>

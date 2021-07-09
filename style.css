@@ -143,8 +143,86 @@ padding-right: 20px;
 
 
 
+.lk-content {
+    display: inline-block;
+    width: 60%;
+    margin-left: 40px;
+    text-align: center;
+}
+.lk-nav {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    display: inline-block;
+    width: 20%;
+    background: rgb(240, 240, 240);
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px;
+}
+.lk-link {
+    color: black;
+    text-decoration: none;
+    text-align: center;
 
+}
+.lk-link:hover {
+    font-size: 25px;
+    font-weight: bold;
+    transition: .1s linear;
+    color: rgb(107, 155, 67);
+}
+.item-header {
+    font-size: 30px;
+    font-weight: bold;
+}
+.pd {
+    display: inline-block;
+    margin-top: 40px;
+    width: 30.333%;
+}
 
+.d-header {
+    font-size:15px;
+    text-align: left;
+}
+.d-text {
+    font-size: 23px;
+    border: black 2px solid;
+    padding: 5 0;
+    border-radius: 10px;
+}
 
+.hide {
+    display: none;
+}
 
-
+.lk-find {
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 6 0 6 10;
+    text-align: left;
+}
+.lk-find:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+.lk-btn {
+    border-style: unset;
+    font-weight: 700;
+    color: white;
+    background: black;
+    padding: 10 20;
+    border-radius: 30px;
+    margin-top: 15px;
+    font-size: 20px;
+    transition: .4s linear;
+}
+.lk-form {
+    margin-top: 40px;
+}
+.lk-btn:hover  {
+    background: #57B845;
+    
+}

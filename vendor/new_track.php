@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require 'connect.php';
     require 'functions.php';
 
@@ -65,8 +66,5 @@
             break;
         }
 
-    //New track
-    
-
-
+    $_SESSION['new-track-ans'] = $answer;
 ?>

@@ -7,12 +7,12 @@
      if (isset($_SESSION['auth-error'])) 
      {
        $errors = $_SESSION['auth-error'];//Error (string) (you can edit it in vendor/auth.php)
-       $data = $_SESSION['tmp-auth-login'];//auth data
+       $ph_login = $_SESSION['tmp-auth-login'];//auth data
 
        unset($_SESSION['auth-error']);
        unset($_SESSION['tmp-auth-login']);
 
-       $ph_login = $data;
+       var_dump($ph_login);
 
        //ТУТ ИЛИ НЕ ТУТ НАДО ВЫВОДИТЬ ОШИБКИ ИЗ ERRORS
      }

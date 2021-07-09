@@ -50,7 +50,7 @@
             <a class="lk-link" href="#" data-filter="add">Добавить товар</a> <br>
             <a class="lk-link" href="#" data-filter="my">Мои товары</a> <br>
             <a class="lk-link" href="#" data-filter="ask">Задать вопрос</a> <br>
-            <a class="lk-link" href="">Выход</a>
+            <a class="lk-link" href="vendor/exit.php">Выход</a>
         </div>
         <div class="lk-content " >
             <div class="content-item" data-cat="personal">

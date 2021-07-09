@@ -20,14 +20,14 @@
 
     if (!$result)
     {
-        $_SESSION['auth-error']='Неверный пароль';
+        $_SESSION['auth-error']='Неверный пароль'; 
         $_SESSION['tmp-auth-login']=$login;
-        header("Location: ".$_SERVER['HTTP_REFERER']);
+        header("Location: /auth.php");
     }
     else
     {
         $_SESSION['authorization-status']=true;
         $_SESSION['authorization-login']=$login;
-        header('Location: /index.php');
+        header('Location: /lk.php');
     }
 ?>

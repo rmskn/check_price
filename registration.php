@@ -84,11 +84,11 @@
     <div class="reg">
     <form class="reg-form" action="vendor/new_user_check.php" method="post">
             <div class="form_text">Регистрация</div>
-              <input class="form-input" type="text" placeholder="Ваше имя" name="fullname" value="<?php echo $ph_fullname; ?>"><br>
-              <input class="form-input" type="text" placeholder="Имя пользователя" name="login" value="<?php echo $ph_login; ?>"><br>
-              <input class="form-input" type="text" placeholder="E-mail" name="email" value="<?php echo $ph_email; ?>"><br>
-              <input class="form-input" type="password" placeholder="Пароль" name="password"><br>
-              <input class="form-input" type="password" placeholder="Подтверждение пароля" name="repeat_password"><br>
+              <input class="form-input" required type="text" placeholder="Ваше имя" name="fullname" value="<?php echo $ph_fullname; ?>"><br>
+              <input class="form-input" required type="text" placeholder="Имя пользователя" name="login" value="<?php echo $ph_login; ?>"><br>
+              <input class="form-input" required type="text" placeholder="E-mail" name="email" value="<?php echo $ph_email; ?>"><br>
+              <input class="form-input" required type="password" placeholder="Пароль" name="password"><br>
+              <input class="form-input" required type="password" placeholder="Подтверждение пароля" name="repeat_password"><br>
               <button class="form-btn" type="submit">Продолжить</button>
             </form> 
     </div>

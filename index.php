@@ -87,8 +87,8 @@
         <div class="intro-item">
             <form class="intro-form" action="registration.php" method="post">
             <div class="form_text">Зарегистрируйся! И добавляй свой первый товар!</div>
-              <input class="form-input" type="text" placeholder="Имя пользователя" name="login"><br>
-              <input class="form-input" type="text" placeholder="E-mail" name="email"><br>
+              <input class="form-input" type="text" required placeholder="Имя пользователя" name="login"><br>
+              <input class="form-input" type="text" required placeholder="E-mail" name="email"><br>
               <button class="form-btn" type="submit">Продолжить</button>
             </form> 
         </div>

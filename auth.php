@@ -72,7 +72,7 @@
     <form class="reg-form" action="vendor/auth.php" method="post">
             <div class="form_text">Авторизация</div>
               <input class="form-input" type="text" placeholder="Имя пользователя" name="login" value="<?php echo $ph_login; ?>"><br>
-              <input class="form-input" type="password" placeholder="Пароль" name="password"><br>
+              <input class="form-input" type="password" placeholder="Пароль" name="password" required ><br>
               <button class="form-btn" type="submit">Продолжить</button>
             </form> 
     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Июл 07 2021 г., 00:09
+-- Время создания: Июл 09 2021 г., 15:30
 -- Версия сервера: 8.0.21
 -- Версия PHP: 8.0.7
 
@@ -72,8 +72,15 @@ CREATE TABLE `users` (
   `password` varchar(100) NOT NULL,
   `fullname` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `date_registration` date NOT NULL
+  `date_registration` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `login`, `password`, `fullname`, `email`, `date_registration`) VALUES
+(1, 'erosab', '$2y$10$OQ9CJ6N5bi5y5bdNCa5CtuQC/Y124E2sUSm3wAy2GgpKf/OOF49hO', 'Kirill', 'tremaskin2010@yandex.ru', '2021-07-08 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -137,7 +144,7 @@ ALTER TABLE `tracking`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `user_tracking`

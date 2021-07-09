@@ -42,7 +42,7 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex" style="margin-top:auto; margin-bottom:auto;" action="vendor/find.php" method="post">
+      <form class="d-flex" style="margin-top:auto; margin-bottom:auto;" action="pidor.php" method="post">
         <input class="form-control me-3" style="width:500px;" type="text" placeholder="Вставьте ссылку на товар" name="findhref">
         <button class="btn btn-primary" type="submit">Поиск</button>
       </form>

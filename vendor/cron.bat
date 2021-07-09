@@ -1,0 +1,1 @@
+"D:\web\php\php.exe" -f "D:\web\www\host2.localhost\updating_data.php"

@@ -1,5 +1,5 @@
 <?php
-    require 'connect.php';
+    require 'vendor/connect.php';
 
     $shops = mysqli_query($connect, "select url from shops");
 

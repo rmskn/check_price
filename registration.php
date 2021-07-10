@@ -1,5 +1,7 @@
 <?php
      session_start();
+     require 'vendor/functions.php';
+     require 'vendor/connect.php';
 
      $ph_fullname = "";
      $ph_login = "";
@@ -85,10 +87,14 @@
     <form class="reg-form" action="vendor/new_user_check.php" method="post">
             <div class="form_text">Регистрация</div>
               <input class="form-input" required type="text" placeholder="Ваше имя" name="fullname" value="<?php echo $ph_fullname; ?>"><br>
+              <?php echo get_error_msg_data('fullname',$errors[0]); ?>
               <input class="form-input" required type="text" placeholder="Имя пользователя" name="login" value="<?php echo $ph_login; ?>"><br>
+              <?php echo get_error_msg_data('login',$errors[1]); ?>
               <input class="form-input" required type="text" placeholder="E-mail" name="email" value="<?php echo $ph_email; ?>"><br>
+              <?php echo get_error_msg_data('email',$errors[2]); ?>
               <input class="form-input" required type="password" placeholder="Пароль" name="password"><br>
               <input class="form-input" required type="password" placeholder="Подтверждение пароля" name="repeat_password"><br>
+              <?php echo get_error_msg_data('password',$errors[3]); ?>
               <button class="form-btn" type="submit">Продолжить</button>
             </form> 
     </div>

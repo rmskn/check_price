@@ -19,9 +19,8 @@
     }
     else
     {
-        $_SESSION['authorization-status']=true;
         $_SESSION['authorization-login']=$login;
-        header('Location: /index.php');
+        header('Location: /lk.php');
     }
 
     

@@ -35,7 +35,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    
+
+        <li class="nav-item">
+          <a class="nav-link" href="lk.php">Личный кабинет</a>
+        </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Информация
@@ -70,20 +74,20 @@
                 <div class="item-header">Личные данные</div>
                 <div class="pd">
                     <div class="d-header">Имя</div>
-                    <?php echo '<a href="vendor/edit_personal.php?it=fullname">Изменить</a>'; ?>
+                    <?php echo '<a href="edit_personal.php?it=fullname">Изменить</a>'; ?>
                     <div class="d-text"><?php echo $fullname; ?></div>
                 </div>
                 <div class="pd">
                     <div class="d-header">Логин</div>
-                    <?php echo '<a href="vendor/edit_personal.php?it=login">Изменить</a>'; ?>
+                    <?php echo '<a href="edit_personal.php?it=login">Изменить</a>'; ?>
                     <div class="d-text"><?php echo $login; ?></div>
                 </div>
                 <div class="pd">
                     <div class="d-header">Почта</div>
-                    <?php echo '<a href="vendor/edit_personal.php?it=email">Изменить</a>'; ?>
+                    <?php echo '<a href="edit_personal.php?it=email">Изменить</a>'; ?>
                     <div class="d-text"><?php echo $email; ?></div>
                 </div>
-                <?php echo '<a href="vendor/edit_personal.php?it=password">Изменить пароль</a>'; ?>
+                <?php echo '<a href="edit_personal.php?it=password">Изменить пароль</a>'; ?>
             </div>
             <div class="content-item hide" data-cat="add"  >
                 <div class="item-header">Добавить товар</div>
@@ -96,7 +100,7 @@
                 <div class="item-header">Мои товары</div>
                 <?php
                      
-                     $items = mysqli_query($connect, "select title, price, image, id, date_creating from tracking where id in (select track from user_tracking where user=(select id from users where login='$login')) order by date_creating desc");
+                     $items = mysqli_query($connect, "select title, price, image, id, date_creating, url from tracking where id in (select track from user_tracking where user=(select id from users where login='$login')) order by date_creating desc");
                      
                      $tmp = 0;
                      while ($row = mysqli_fetch_row($items))
@@ -106,6 +110,7 @@
                         echo $row[0];//title
                         echo $row[1];//price
                         echo '<img src="'.$row[2].'">';//image
+                        echo '<a href="'.$row[5].'">Ссылка на товар</a>';
                         echo '<a href="vendor/delete_track.php?id='.$row[3].'">Перестать отслеживать</a>';
                         echo '</div>';
                      }

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -22,13 +25,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
     
-        <li class="nav-item ">
+        <?php 
+        if (!isset($_SESSION['authorization-login'])) echo '<li class="nav-item">
           <a class="nav-link" href="auth.php">Вход</a>
-        </li>
+        </li>';
+        ?>
         
-        <li class="nav-item">
+        <?php 
+        if (!isset($_SESSION['authorization-login'])) echo '<li class="nav-item">
           <a class="nav-link" href="registration.php">Регистрация</a>
-        </li>
+        </li>';
+        ?>
+
+        <?php 
+        if (isset($_SESSION['authorization-login'])) echo '<li class="nav-item">
+          <a class="nav-link" href="lk.php">Личный кабинет</a>
+        </li>';
+        ?>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

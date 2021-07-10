@@ -253,7 +253,7 @@
             $result = mysqli_fetch_row($result);
             $result = $result[0];
             $result1 = mysqli_query($connect,"select id from user_tracking where user='$user_id' and track ='$result'");
-            if ($result1) return 0;
+            if (mysqli_num_rows($result1)>0) return 0;
             return 1;
         }
             else return 2;
@@ -261,5 +261,5 @@
 
     function alert($msg) {
         echo "<script type='text/javascript'>alert('$msg');</script>";
-    }
+    }    
 ?>

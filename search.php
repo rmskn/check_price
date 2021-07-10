@@ -12,6 +12,12 @@
         echo $data[1];//title
         echo '<br/>';
         echo '<img src="'.$data[2].'">';//image
+        echo '</br>';
+
+        //ЭТО КНОПКА ЧТОБЫ ПЕРЕЙТИ К ДОБАВЛЕНИЮ ТОВАРА ДЛЯ АВТОРИЗИРОВАННЫХ ПОЛЬЗОВАТЕЛЕЙ
+        //ИЛИ КНОПКА ЗАРЕГИСТРИРОВАТЬСЯ ДЛЯ НЕАВТОРИЗИРОВАННЫХ ПОЛЬЗОВАТЕЛЕЙ
+        if (isset($_SESSION['authorization-login'])) echo '<a href = "vendor/new_track.php">Отслеживать</a>';
+            else echo '<a href = "registration.php">Зарегистрироваться для отслеживания</a>';
         
     }
 

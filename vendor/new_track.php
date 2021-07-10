@@ -3,12 +3,12 @@
     require 'connect.php';
     require 'functions.php';
 
-    $url = $_POST['url'];
-    $price = $_POST['price'];
-    $title = $_POST['title'];
-    $image = $_POST['image'];
+    $url = $_SESSION['finded-item'][3];
+    $price = $_SESSION['finded-item'][0];
+    $title = $_SESSION['finded-item'][1];
+    $image = $_SESSION['finded-item'][2];
 
-    $user = $_SESSION['login'];
+    $login = $_SESSION['authorization-login'];
 
     $current_date = date('m/d/Y h:i:s a', time());
     $last_update = $current_date;
@@ -16,6 +16,8 @@
     $user_id = mysqli_query($connect, "select id from users where login = '$login'");
     $user_id = mysqli_fetch_row($user_id);
     $user_id = $user_id[0];
+
+    $anwer = 'ccc';
 
     switch (check_url_database($url, $user_id)) {
         case 0://full matching (user have this track)
@@ -47,7 +49,7 @@
             mysqli_begin_transaction($connect);
 
             try {
-                mysqli_query($connect, "INSERT INTO tracking(url, price, title, image, date_creating, date_update) VALUES ('$url', '$price', '$title', '$image', '$date_creating', '$date_update')");
+                mysqli_query($connect, "insert into tracking(url, price, title, image, date_creating, date_update) values ('$url', '$price', '$title', '$image', NOW(), NOW())");
             
                 $track_id = mysqli_query($connect, "select id from tracking where url = '$url'");
                 $track_id = mysqli_fetch_row($track_id);
@@ -66,5 +68,10 @@
             break;
         }
 
-    $_SESSION['new-track-ans'] = $answer;
+    $_SESSION['alert'] = $answer;
+    header('Location: /lk.php');
+    echo $answer;
+
+    //ТУТ НАДО ПЕРЕСЫЛАТЬ В ЛК ВО ВКЛАДКУ МОИ ТОВАРЫ И ВЫВОДИТЬ, ВОЗМОЖНО ЧЕРЕЗ ALERT ЧТО ВСЕ ОК ИЛИ ПРОИЗШЕЛ ФЕЙЛ, ЭТО МОЖНО ПОНЯТЬ ИЗ $_SESSION['new-track-ans']
+
 ?>

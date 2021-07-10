@@ -114,7 +114,7 @@
         require 'connect.php';
         libxml_use_internal_errors(true);
 
-        $answer = array('NO','NO','NO');
+        $answer = array('NO','NO','NO',$href);
 
         $shops_xpath = mysqli_query($connect, "select url, xpath_price, xpath_title, xpath_image, id from shops");
 
@@ -248,7 +248,7 @@
 
         $result = mysqli_query($connect,"select id from tracking where url='$url'");      
 
-        if ($result) 
+        if (mysqli_num_rows($result)>0) 
         {
             $result = mysqli_fetch_row($result);
             $result = $result[0];
@@ -257,5 +257,9 @@
             return 1;
         }
             else return 2;
+    }
+
+    function alert($msg) {
+        echo "<script type='text/javascript'>alert('$msg');</script>";
     }
 ?>

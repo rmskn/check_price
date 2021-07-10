@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Июл 09 2021 г., 15:30
+-- Время создания: Июл 10 2021 г., 15:15
 -- Версия сервера: 8.0.21
 -- Версия PHP: 8.0.7
 
@@ -47,6 +47,40 @@ INSERT INTO `shops` (`id`, `url`, `xpath_price`, `xpath_title`, `xpath_image`) V
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `test`
+--
+
+CREATE TABLE `test` (
+  `id` int NOT NULL,
+  `time` datetime NOT NULL,
+  `text` varchar(100) NOT NULL,
+  `lol` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `test`
+--
+
+INSERT INTO `test` (`id`, `time`, `text`, `lol`) VALUES
+(11, '2021-07-09 20:15:11', 'kek lol кек лол', 4),
+(12, '2021-07-09 20:24:34', 'kek lol кек лол', 4),
+(13, '2021-07-09 20:46:28', 'kek lol кек лол', 4),
+(14, '2021-07-09 20:48:29', 'kek lol кек лол', 4),
+(15, '2021-07-09 20:49:29', 'kek lol кек лол', 4),
+(16, '2021-07-09 20:50:29', 'kek lol кек лол', 4),
+(17, '2021-07-09 20:51:29', 'kek lol кек лол', 4),
+(18, '2021-07-09 20:52:29', 'kek lol кек лол', 4),
+(19, '2021-07-09 20:53:29', 'kek lol кек лол', 4),
+(20, '2021-07-09 20:54:29', 'kek lol кек лол', 4),
+(21, '2021-07-09 20:55:29', 'kek lol кек лол', 4),
+(22, '2021-07-09 20:56:29', 'kek lol кек лол', 4),
+(23, '2021-07-09 20:57:29', 'kek lol кек лол', 4),
+(24, '2021-07-09 20:58:29', 'kek lol кек лол', 4),
+(25, '2021-07-09 20:59:29', 'kek lol кек лол', 4);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `tracking`
 --
 
@@ -56,8 +90,8 @@ CREATE TABLE `tracking` (
   `price` int NOT NULL,
   `title` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL,
-  `date_creating` date NOT NULL,
-  `date_update` date NOT NULL
+  `date_creating` datetime NOT NULL,
+  `date_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -90,8 +124,8 @@ INSERT INTO `users` (`id`, `login`, `password`, `fullname`, `email`, `date_regis
 
 CREATE TABLE `user_tracking` (
   `id` int NOT NULL,
-  `track` int NOT NULL,
-  `user` int NOT NULL
+  `user` int NOT NULL,
+  `track` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -102,6 +136,12 @@ CREATE TABLE `user_tracking` (
 -- Индексы таблицы `shops`
 --
 ALTER TABLE `shops`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `test`
+--
+ALTER TABLE `test`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -120,9 +160,7 @@ ALTER TABLE `users`
 -- Индексы таблицы `user_tracking`
 --
 ALTER TABLE `user_tracking`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `track` (`track`),
-  ADD KEY `user` (`user`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -135,10 +173,16 @@ ALTER TABLE `shops`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT для таблицы `test`
+--
+ALTER TABLE `test`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT для таблицы `tracking`
 --
 ALTER TABLE `tracking`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
@@ -150,18 +194,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `user_tracking`
 --
 ALTER TABLE `user_tracking`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- Ограничения внешнего ключа сохраненных таблиц
---
-
---
--- Ограничения внешнего ключа таблицы `user_tracking`
---
-ALTER TABLE `user_tracking`
-  ADD CONSTRAINT `user_tracking_ibfk_1` FOREIGN KEY (`track`) REFERENCES `tracking` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `user_tracking_ibfk_2` FOREIGN KEY (`user`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

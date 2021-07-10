@@ -43,10 +43,5 @@
     $_SESSION['finded-item'] = $data;
     header('Location: /search.php');
 
-    echo $data[0];//price
-    echo '<br/>';
-    echo $data[1];//title
-    echo '<br/>';
-    echo '<img src="'.$data[2].'">';//image
 
 ?>

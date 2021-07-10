@@ -1,3 +1,16 @@
+<?php
+     session_start();
+     require 'vendor/connect.php';
+     require 'vendor/functions.php';
+
+     $login = $_SESSION['authorization-login'];
+
+     $res1 = mysqli_query($connect, "select fullname, email from users where login = '$login'");
+     $res1 = mysqli_fetch_row($res1);
+     $fullname = $res1[0];
+     $email = $res1[1];
+
+?>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -57,26 +70,48 @@
                 <div class="item-header">Личные данные</div>
                 <div class="pd">
                     <div class="d-header">Имя</div>
-                    <div class="d-text">такое то такое</div>
+                    <?php echo '<a href="vendor/edit_personal.php?it=fullname">Изменить</a>'; ?>
+                    <div class="d-text"><?php echo $fullname; ?></div>
                 </div>
                 <div class="pd">
                     <div class="d-header">Логин</div>
-                    <div class="d-text">попуск2003</div>
+                    <?php echo '<a href="vendor/edit_personal.php?it=login">Изменить</a>'; ?>
+                    <div class="d-text"><?php echo $login; ?></div>
                 </div>
                 <div class="pd">
                     <div class="d-header">Почта</div>
-                    <div class="d-text">попуск2003@eblan.ru</div>
+                    <?php echo '<a href="vendor/edit_personal.php?it=email">Изменить</a>'; ?>
+                    <div class="d-text"><?php echo $email; ?></div>
                 </div>
+                <?php echo '<a href="vendor/edit_personal.php?it=password">Изменить пароль</a>'; ?>
             </div>
             <div class="content-item hide" data-cat="add"  >
                 <div class="item-header">Добавить товар</div>
-                <form class="lk-form" action="">        
-                    <input class="lk-find" size=50 placeholder="Вставьте ссылку на товар" required type="text">
-                    <button type="submit" class="lk-btn">Найти</button>
+                <form class="lk-form" action="vendor/find.php" method="post">        
+                    <input class="lk-find" size=50 placeholder="Вставьте ссылку на товар" required type="text" name="findhref">
+                    <button type="submit" class="lk-btn" type = "submit">Найти</button>
                 </form>
             </div>
             <div class="content-item hide" data-cat="my">
                 <div class="item-header">Мои товары</div>
+                <?php
+                     
+                     $items = mysqli_query($connect, "select title, price, image, id, date_creating from tracking where id in (select track from user_tracking where user=(select id from users where login='$login')) order by date_creating desc");
+                     
+                     $tmp = 0;
+                     while ($row = mysqli_fetch_row($items))
+                     {
+                        $tmp++;
+                        echo '<div>';
+                        echo $row[0];//title
+                        echo $row[1];//price
+                        echo '<img src="'.$row[2].'">';//image
+                        echo '<a href="vendor/delete_track.php?id='.$row[3].'">Перестать отслеживать</a>';
+                        echo '</div>';
+                     }
+
+                     if ($tmp==0) echo 'Отслеживаний пока нет';
+                ?>
             </div>
             <div class="content-item hide" data-cat="ask">
                 <div class="item-header">Задать вопрос</div>
@@ -97,3 +132,7 @@
 <script src="app.js"></script>
 </body>
 </html>
+<?php
+    if (isset($_SESSION['alert'])){alert($_SESSION['alert']); unset($_SESSION['alert']);}
+    
+?>

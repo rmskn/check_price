@@ -45,10 +45,10 @@
             Информация
           </a>
           <ul class="dropdown-menu"  aria-labelledby="navbarDropdown">
-            <li ><a class="dropdown-item"  href="#">О нас</a></li>
-            <li><a class="dropdown-item" href="#">Поддерживаемые магазины</a></li>
+            <li ><a class="dropdown-item"  href="about_us.php">О нас</a></li>
+            <li><a class="dropdown-item" href="supporting_shops.php">Поддерживаемые магазины</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Справка</a></li>
+            <li><a class="dropdown-item" href="spravka.php">Справка</a></li>
           </ul>
         </li>
       </ul>
@@ -96,14 +96,8 @@
     <div class="redaction">
         <div class="redaction-title">Введите новые данные</div>
         <form action="vendor/edit_personal.php?it='.$type.'" method="post">
-<<<<<<< Updated upstream
     <input type="text" placeholder='.$ph.' name="new-data" value = "'.$value.'">
     <button type="submit">Изменить</button>
-=======
-    <input type="text" placeholder="Новый пароль" name="new-data" value = "'.$value.'">
-    <button type="submit">Изменить</button><br>
-    <div class="error">'.get_error_msg_data($type_error,$edit_error).'</div>
->>>>>>> Stashed changes
     </form>
     </div>
 </div>

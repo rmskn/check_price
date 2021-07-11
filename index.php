@@ -74,10 +74,10 @@
       <img src="img/slide1.jpg" width="1200px" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" style="height: 600px; transition: opacity .8s ease;" data-bs-interval="2000">
-      <img src="img/slide2.jpg" width="1200px" class="d-block w-100" alt="...">
+      <img src="img/slide22.jpg" width="1200px" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" style="height: 600px; transition: opacity .8s ease;" data-bs-interval="2000">
-      <img src="img/slide3.jpg" width="1200px" class="d-block w-100" alt="...">
+      <img src="img/slide33.jpg" width="1200px" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">

@@ -64,7 +64,7 @@
     session_start();
 
     //Check existance of errors
-    if (isset($_SESSION['find-error'])) echo '<div class="container"><div class="gl-error">'.$_SESSION['find-error'].'</div></div>';
+    if (isset($_SESSION['find-error'])){ echo '<div class="container"><div class="gl-error">'.$_SESSION['find-error'].'</div></div>'; die();}
     else //Read finded info
     {
         $data = $_SESSION['finded-item'];

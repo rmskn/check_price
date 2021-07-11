@@ -271,6 +271,7 @@ padding-right: 20px;
 }
 
 .item {
+    margin-top: 30px;
     margin-left: 200px;
 }
 .lk-item-title {
@@ -301,9 +302,23 @@ padding-right: 20px;
     font-size: 18px;
     border-radius: 6px;
     padding: 4 10;
+    
 
 }
 .lk-item-unsub:hover {
-    background: rgb(214, 64, 64);
+    border-color: rgb(149, 25, 25);
     color: black;
+    transition: .1s linear;
+}
+
+.redaction-title {
+    font-size: 30px;
+    font-weight: 600;
+}
+.redaction {
+    width: 35%;
+    text-align: center;
+    border: black 2px solid;
+    border-radius: 5px;
+    margin-top: 30px;
 }

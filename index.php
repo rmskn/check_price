@@ -48,10 +48,10 @@
             Информация
           </a>
           <ul class="dropdown-menu"  aria-labelledby="navbarDropdown">
-            <li ><a class="dropdown-item"  href="#">О нас</a></li>
-            <li><a class="dropdown-item" href="#">Поддерживаемые магазины</a></li>
+          <li ><a class="dropdown-item"  href="about_us.php">О нас</a></li>
+            <li><a class="dropdown-item" href="supporting_shops.php">Поддерживаемые магазины</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Справка</a></li>
+            <li><a class="dropdown-item" href="spravka.php">Справка</a></li>
           </ul>
         </li>
       </ul>

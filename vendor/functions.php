@@ -261,5 +261,53 @@
 
     function alert($msg) {
         echo "<script type='text/javascript'>alert('$msg');</script>";
-    }    
+    }
+    
+    function get_error_msg_data($type, $code)
+    {
+        switch ($type)
+        {
+            case 'fullname':
+                {
+                    switch ($code)
+                    {
+                        case 0: {return ''; break;}
+                        case 1: {return 'Некорректные символы'; break;}
+                    }
+                    break;
+                }
+            case 'login':
+                {
+                    switch ($code)
+                    {
+                    case 0: {return ''; break;}
+                    case 1: {return 'Логин занят'; break;}
+                    case 2: {return 'Длина логина должна составлять от 5 до 15 символов';break;};
+                    case 3: {return 'Логин может содержать только буквы и цифры';break;};
+                    break;
+                    }
+                }
+            case 'email':
+                {
+                    switch ($code)
+                    {
+                    case 0: {return ''; break;}
+                    case 1: {return 'Email уже зарегистрирован'; break;}
+                    case 2: {return 'Email должен быть в виде something@foffle.com'; break;}
+                    break;
+                    }
+                }
+            case 'password':
+                {
+                    switch ($code)
+                    {
+                    case 0: {return ''; break;}
+                    case 1: {return 'Длина пароля должна быть от 5 до 25 символов'; break;}
+                    case 2: {return 'Пароль должен содерать одну прописную букву, одну заглавную букву, одну цифру и один специальный символ'; break;}
+                    case 3: {return 'Введенные пароли не совпадают'; break;}
+                    break;
+                    }
+                }
+        }
+    }
 ?>

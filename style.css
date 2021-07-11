@@ -112,8 +112,8 @@ h1,h2,h3,h4 {
     flex-wrap: wrap;
 }
 .cmp-itm {
-    width: 30%;
-    margin-left: 40px;
+
+    margin-left: 130px;
 }
 
 .footer {
@@ -145,8 +145,7 @@ padding-right: 20px;
 
 .lk-content {
     display: inline-block;
-    width: 60%;
-    margin-left: 40px;
+    margin-left: 400px;
     text-align: center;
 }
 .lk-nav {
@@ -160,6 +159,7 @@ padding-right: 20px;
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
     border-radius: 10px;
+    position: fixed;
 }
 .lk-link {
     color: black;
@@ -188,10 +188,12 @@ padding-right: 20px;
     text-align: left;
 }
 .d-text {
-    font-size: 23px;
+    text-align: center;
+    font-size: 20px;
     border: black 2px solid;
-    padding: 5 0;
     border-radius: 10px;
+    padding-right: 200px;
+    padding-left: 10px;
 }
 
 .hide {
@@ -225,4 +227,83 @@ padding-right: 20px;
 .lk-btn:hover  {
     background: #57B845;
     
+}
+.item-info {
+    margin-top: 20px;
+}
+.item-title {
+    
+    font-size: 30;
+}
+.item-img {
+   
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 3px solid rgb(0, 0, 0); /* Параметры рамки */
+    box-shadow: 0 0 7px #666; /* Параметры тени */
+}
+.item-price {
+    font-size: 35px;
+    margin-top: 20px;
+}
+.item-btn {
+    text-decoration: none;
+    font-size: 25px;
+    border: black 2px solid;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    color: black;
+    padding: 5 5 5 5;
+    transition: .4s linear;
+}
+.item-btn:hover {
+    background: rgb(123, 217, 121);
+    color: black ;
+}
+.lk-edit {
+    text-decoration: none;
+    font-size: 18px;
+    color: rgb(121, 121, 121);
+}
+
+.lk-edit:hover {
+    color: brown;
+}
+
+.item {
+    margin-left: 200px;
+}
+.lk-item-title {
+    font-size: 25px;
+    font-weight: 500;
+}
+.lk-item-img {
+    border: rgb(0, 0, 0) 2px solid;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #666; /* Параметры тени */
+}
+.lk-item-price {
+    font-size: 20px;
+}
+.lk-item-link {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+.lk-item-link:hover {
+    color: rgb(100, 153, 47);
+}
+.lk-item-unsub {
+    margin-top: 10px;
+    text-decoration: none;
+    color: black;
+    border: black 2px solid;
+    font-size: 18px;
+    border-radius: 6px;
+    padding: 4 10;
+
+}
+.lk-item-unsub:hover {
+    background: rgb(214, 64, 64);
+    color: black;
 }

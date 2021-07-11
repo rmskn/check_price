@@ -114,13 +114,10 @@
     <div class="cmp-text">Поддерживаемые магазины</div>
     <div class="cmp-items">
       <div class="cmp-itm">
-          <img src="img/WLB.png" width="350px" alt="">
+          <img src="img/WLB.png" width="400px"  alt="">
         </div>
         <div class="cmp-itm">
-          <img src="img/ozon.png" width="350px" alt="">
-        </div>
-        <div class="cmp-itm">
-          <img src="img/Avito.png" width="350px" alt="">
+          <img src="img/Avito.png" width="400px" alt="">
         </div>
       </div>
   </div>

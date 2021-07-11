@@ -66,28 +66,30 @@
             <a class="lk-link" href="#" data-filter="personal">Личные данные </a> <br>
             <a class="lk-link" href="#" data-filter="add">Добавить товар</a> <br>
             <a class="lk-link" href="#" data-filter="my">Мои товары</a> <br>
-            <a class="lk-link" href="#" data-filter="ask">Задать вопрос</a> <br>
+            <!-- <a class="lk-link" href="#" data-filter="ask">Задать вопрос</a> <br> -->
             <a class="lk-link" href="vendor/exit.php">Выход</a>
         </div>
-        <div class="lk-content " >
-            <div class="content-item" data-cat="personal">
+        <div class="lk-content  " >
+            <div class="content-item hide" data-cat="personal">
                 <div class="item-header">Личные данные</div>
                 <div class="pd">
                     <div class="d-header">Имя</div>
-                    <?php echo '<a href="edit_personal.php?it=fullname">Изменить</a>'; ?>
                     <div class="d-text"><?php echo $fullname; ?></div>
+                    <?php echo '<a class="lk-edit" href="edit_personal.php?it=fullname">Редактировать</a>'; ?>
                 </div>
                 <div class="pd">
                     <div class="d-header">Логин</div>
-                    <?php echo '<a href="edit_personal.php?it=login">Изменить</a>'; ?>
+                    
                     <div class="d-text"><?php echo $login; ?></div>
+                    <?php echo '<a class="lk-edit" href="edit_personal.php?it=login">Редактировать</a>'; ?>
                 </div>
                 <div class="pd">
                     <div class="d-header">Почта</div>
-                    <?php echo '<a href="edit_personal.php?it=email">Изменить</a>'; ?>
+                    
                     <div class="d-text"><?php echo $email; ?></div>
+                    <?php echo '<a class="lk-edit" href="edit_personal.php?it=email">Редактировать</a>'; ?>
                 </div>
-                <?php echo '<a href="edit_personal.php?it=password">Изменить пароль</a>'; ?>
+                <?php echo '<a class="lk-edit" href="edit_personal.php?it=password">Изменить пароль</a>'; ?>
             </div>
             <div class="content-item hide" data-cat="add"  >
                 <div class="item-header">Добавить товар</div>
@@ -96,8 +98,9 @@
                     <button type="submit" class="lk-btn" type = "submit">Найти</button>
                 </form>
             </div>
-            <div class="content-item hide" data-cat="my">
+            <div class="content-item " data-cat="my">
                 <div class="item-header">Мои товары</div>
+                <div class="item">
                 <?php
                      
                      $items = mysqli_query($connect, "select title, price, image, id, date_creating, url from tracking where id in (select track from user_tracking where user=(select id from users where login='$login')) order by date_creating desc");
@@ -106,25 +109,30 @@
                      while ($row = mysqli_fetch_row($items))
                      {
                         $tmp++;
-                        echo '<div>';
-                        echo $row[0];//title
-                        echo $row[1];//price
-                        echo '<img src="'.$row[2].'">';//image
-                        echo '<a href="'.$row[5].'">Ссылка на товар</a>';
-                        echo '<a href="vendor/delete_track.php?id='.$row[3].'">Перестать отслеживать</a>';
-                        echo '</div>';
+                        
+                        echo'<div class="lk-item-title">Наименование : '.$row[0].'</div>';
+                        echo'<div class="lk-item-img"><img width=500px height=350px src="'.$row[2].'"></div>';
+                        echo'<div class="lk-item-price">Цена: '.$row[1].'</div>';                     
+                        echo'<a class="lk-item-link" href="'.$row[5].'">Ссылка на товар</a><br>';
+                        echo'<a class="lk-item-unsub" href="vendor/delete_track.php?id='.$row[3].'">Перестать отслеживать</a>';
+                        
                      }
 
                      if ($tmp==0) echo 'Отслеживаний пока нет';
                 ?>
+                  
+                  <div class="lk-item-img"></div>
+                  <div class="lk-item-price"></div>
+                </div>
+                
             </div>
-            <div class="content-item hide" data-cat="ask">
+            <!-- <div class="content-item hide" data-cat="ask">
                 <div class="item-header">Задать вопрос</div>
                 <form class="lk-form" action="">        
                     <input class="lk-find" size=50 placeholder="Задайте свой вопрос" required type="text">
                     <button type="submit" class="lk-btn">Задать</button>
                 </form>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

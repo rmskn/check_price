@@ -267,25 +267,6 @@
     {
         switch ($type)
     {
-            //Array of errors
-    /*
-        [0] // fullname // 0 - all good
-                           1 - incorrect symbols
-        [1] // login // 0 - all good
-                        1 - also registration login
-                        2 - short or long [5,15]
-                        3 - incorrect symbols
-        [2] // email // 0 - all good
-                        1 - also registration email
-                        2 - incorrect email(regexp)
-        [3] // password // 0 - all good
-                           1 - short or long[5,25]
-                           2 - incorrect symbols (password must contain at least one number,
-                                    one upper case letter,
-                                    one lower case letter
-                                    and one special character)
-                           3 - don't matching repeat pass
-    */
         case 'fullname':
             {
                 switch ($code)

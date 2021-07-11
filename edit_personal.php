@@ -69,10 +69,10 @@
 
     switch ($type)
     {
-        case 'fullname': {$value = mysqli_query($connect, "select fullname from users where login = '$login'"); break;}
-        case 'login': {$value = mysqli_query($connect, "select login from users where login = '$login'"); break;}
-        case 'email': {$value = mysqli_query($connect, "select email from users where login = '$login'"); break;}
-        case 'password': {$value = mysqli_query($connect, "select password from users where login = '$login'"); break;}   
+        case 'fullname': {$ph = 'Имя'; $value = mysqli_query($connect, "select fullname from users where login = '$login'"); break;}
+        case 'login': {$ph = 'Логин'; $value = mysqli_query($connect, "select login from users where login = '$login'"); break;}
+        case 'email': {$ph = 'Email'; $value = mysqli_query($connect, "select email from users where login = '$login'"); break;}
+        case 'password': {$ph = 'Пароль'; $value = mysqli_query($connect, "select password from users where login = '$login'"); break;}   
     }
 
     $value = mysqli_fetch_row($value);
@@ -96,7 +96,7 @@
     <div class="redaction">
         <div class="redaction-title">Введите новые данные</div>
         <form action="vendor/edit_personal.php?it='.$type.'" method="post">
-    <input type="text" placeholder="Новый пароль" name="new-data" value = "'.$value.'">
+    <input type="text" placeholder='.$ph.' name="new-data" value = "'.$value.'">
     <button type="submit">Изменить</button>
     </form>
     </div>

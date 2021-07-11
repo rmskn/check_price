@@ -1,4 +1,6 @@
-
+<?php 
+    session_start();
+?>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -61,7 +63,6 @@
   </div>
 </nav>
 <?php
-    session_start();
 
     //Check existance of errors
     if (isset($_SESSION['find-error'])){ echo '<div class="container"><div class="gl-error">'.$_SESSION['find-error'].'</div></div>'; die();}

@@ -70,9 +70,9 @@
     <form class="reg-form" action="vendor/auth.php" method="post">
             <div class="form_text">Авторизация</div>
               <input class="form-input" type="text" placeholder="Имя пользователя" name="login" value="<?php echo $ph_login; ?>"><br>
-              <?php if ($error == 'Неверный логин') echo $error; echo '</br>'; ?>
+              <?php if ($error == 'Неверный логин') echo '<div class="error">'.$error.' </div>';?>
               <input class="form-input" type="password" placeholder="Пароль" name="password" required ><br>
-              <?php if ($error == 'Неверный пароль') echo $error; echo '</br>'; ?>
+              <?php if ($error == 'Неверный пароль') echo '<div class="error">'.$error.'</div>';?>
               <button class="form-btn" type="submit">Продолжить</button>
             </form> 
     </div>

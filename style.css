@@ -322,3 +322,11 @@ padding-right: 20px;
     border-radius: 5px;
     margin-top: 30px;
 }
+
+.error {
+    font-size: 14px;
+    color: rgb(42, 128, 161);
+}
+.gl-error {
+    font-size: 30px;
+}

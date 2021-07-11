@@ -115,7 +115,7 @@
                         
                         echo'<div class="lk-item-title">Наименование : '.$row[0].'</div>';
                         echo'<div class="lk-item-img"><img width=500px height=350px src="'.$row[2].'"></div>';
-                        echo'<div class="lk-item-price">Цена: '.$row[1].'</div>';                     
+                        echo'<div class="lk-item-price">Цена: '.$row[1].' руб.</div>';                     
                         echo'<a class="lk-item-link" href="'.$row[5].'">Ссылка на товар</a><br>';
                         echo'<a class="lk-item-unsub" href="vendor/delete_track.php?id='.$row[3].'">Перестать отслеживать</a>';
                         echo'<br>';

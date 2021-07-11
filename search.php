@@ -1,20 +1,4 @@
-<?php
-    session_start();
 
-    //Check existance of errors
-    if (isset($_SESSION['find-error'])) echo $_SESSION['find-error'];
-    else //Read finded info
-    {
-        $data = $_SESSION['finded-item'];
-
-        //ЭТО КНОПКА ЧТОБЫ ПЕРЕЙТИ К ДОБАВЛЕНИЮ ТОВАРА ДЛЯ АВТОРИЗИРОВАННЫХ ПОЛЬЗОВАТЕЛЕЙ
-        //ИЛИ КНОПКА ЗАРЕГИСТРИРОВАТЬСЯ ДЛЯ НЕАВТОРИЗИРОВАННЫХ ПОЛЬЗОВАТЕЛЕЙ
-        
-        
-    }
-
-    unset($_SESSION['find-error']);
-?>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -76,12 +60,28 @@
     </div>
   </div>
 </nav>
+<?php
+    session_start();
 
+    //Check existance of errors
+    if (isset($_SESSION['find-error'])) echo '<div class="container"><div class="gl-error">'.$_SESSION['find-error'].'</div></div>';
+    else //Read finded info
+    {
+        $data = $_SESSION['finded-item'];
+
+        //ЭТО КНОПКА ЧТОБЫ ПЕРЕЙТИ К ДОБАВЛЕНИЮ ТОВАРА ДЛЯ АВТОРИЗИРОВАННЫХ ПОЛЬЗОВАТЕЛЕЙ
+        //ИЛИ КНОПКА ЗАРЕГИСТРИРОВАТЬСЯ ДЛЯ НЕАВТОРИЗИРОВАННЫХ ПОЛЬЗОВАТЕЛЕЙ
+        
+        
+    }
+
+    unset($_SESSION['find-error']);
+?>
 <div class="container">
     <div class="item-info">
         <div class="item-title">Наименование товара: <?php echo $data[1]; ?></div>
         <div class=""><img class="item-img" src="<?php echo $data[2]; ?>" alt=""></div>
-        <div class="item-price">Цена: <?php echo $data[0];?> рублей  <?php
+        <div class="item-price">Цена: <?php echo $data[0];?> руб.  <?php
         if (isset($_SESSION['authorization-login'])) echo '<a class="item-btn" href = "vendor/new_track.php">Отслеживать</a>';
         else echo '<a class="item-btn" href = "registration.php">Зарегистрироваться для отслеживания</a>';
         ?></div>

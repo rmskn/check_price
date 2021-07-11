@@ -96,15 +96,20 @@
     <div class="redaction">
         <div class="redaction-title">Введите новые данные</div>
         <form action="vendor/edit_personal.php?it='.$type.'" method="post">
+<<<<<<< Updated upstream
     <input type="text" placeholder='.$ph.' name="new-data" value = "'.$value.'">
     <button type="submit">Изменить</button>
+=======
+    <input type="text" placeholder="Новый пароль" name="new-data" value = "'.$value.'">
+    <button type="submit">Изменить</button><br>
+    <div class="error">'.get_error_msg_data($type_error,$edit_error).'</div>
+>>>>>>> Stashed changes
     </form>
     </div>
 </div>
     ';
     
-    //Вывод ошибок
-    echo get_error_msg_data($type_error,$edit_error);
+    
 ?>
 
 

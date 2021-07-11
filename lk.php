@@ -1,5 +1,8 @@
 <?php
      session_start();
+
+     if (!isset($_SESSION['authorization-login'])) header('Location: index.php');
+
      require 'vendor/connect.php';
      require 'vendor/functions.php';
 
